@@ -901,11 +901,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\39905572899\\Desktop\\api_filmes\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_filmes\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
       "projectName": "webapi.filmes.tarde",
-      "projectPath": "C:\\Users\\39905572899\\Desktop\\api_filmes\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
+      "projectPath": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_filmes\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
       "packagesPath": "C:\\Users\\39905572899\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\39905572899\\Desktop\\api_filmes\\webapi.filmes.tarde\\obj\\",
+      "outputPath": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_filmes\\webapi.filmes.tarde\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\39905572899\\AppData\\Roaming\\NuGet\\NuGet.Config",
