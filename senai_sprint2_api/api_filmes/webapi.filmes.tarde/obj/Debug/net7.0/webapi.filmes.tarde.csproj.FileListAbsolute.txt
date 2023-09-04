@@ -78,3 +78,10 @@ C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi
 C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.pdb
 C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\obj\Debug\net7.0\webapi.filmes.tarde.genruntimeconfig.cache
 C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\obj\Debug\net7.0\ref\webapi.filmes.tarde.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_filmes\webapi.filmes.tarde\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

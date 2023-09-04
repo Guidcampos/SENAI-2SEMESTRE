@@ -10,12 +10,42 @@
             </summary>
             <returns>Lista de filmes e um status code</returns>
         </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Post(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Cadastra um novo filme
+            </summary>
+            <param name="novoFilme">Objeto novoFilme recebido na requisição</param>
+            <returns>Um status code 201 - Created</returns>
+        </member>
         <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Get(System.Int32)">
             <summary>
             Endpoint para buscar por id
             </summary>
             <param name="id"></param>
             <returns></returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdBody(webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com as novas informações</param>
+            <returns>Um status code</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Delete(System.Int32)">
+            <summary>
+            Deleta um filme existente
+            </summary>
+            <param name="id">id do filme que será deletado</param>
+            <returns>Um status code 204 - No Content</returns>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme existente passando o seu id pelo corpo da requisição
+            </summary>
+            <param name="id">id do filme que será atualizado</param>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com as novas informações</param>
+            <returns>Um status code</returns>
+            http://localhost:5000/api/filme/3
         </member>
         <member name="T:webapi.filmes.tarde.Controllers.GeneroController">
             <summary>
@@ -83,6 +113,11 @@
         <member name="T:webapi.filmes.tarde.Domains.GeneroDomain">
             <summary>
             Classe que representa e entidade Genero
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.UsuarioDomain">
+            <summary>
+            Classe que representa a entidade(tabela) Usuário
             </summary>
         </member>
         <member name="T:webapi.filmes.tarde.Interfaces.IFilmeRepository">
@@ -173,6 +208,14 @@
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
         </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método que busca um usuário por email e senha
+            </summary>
+            <param name="email">email do usuário</param>
+            <param name="senha">senha do usuário</param>
+            <returns>Objeto que foi buscado</returns>
+        </member>
         <member name="F:webapi.filmes.tarde.Repositories.FilmeRepository.StringConexao">
             <summary>
             String de conexão com o banco de dados que recebe os seguintes parâmetros:
@@ -182,6 +225,13 @@
                 - Windows: Integrated Security = True
                 - SqlServer: User Id = sa; Pwd = Senha
             </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.AtualizarIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
+            <summary>
+            Atualiza um filme passando o id pelo recurso
+            </summary>
+            <param name="id">id do filme que será atualizado</param>
+            <param name="filme">objeto filme com as novas informações</param>
         </member>
         <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository.StringConexao">
             <summary>

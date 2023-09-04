@@ -1,10 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "tS94mAIe/vqkxjkloveO19QkIuk3Q3ZLHBj0uYh+T7zKg1mhTLdtx/rI+RKv8GfYlDbyKBO0myZ9Uz1e3g6dVg==",
+  "dgSpecHash": "qBCufapLUQCr+kbbZ/oO0ONWi+GDpAlXQzmsB/wK61pZh6fz1M5Q0P2MSYkjHsVwNkLSdAS46pKP/bK0sQXf1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_filmes\\webapi.filmes.tarde\\webapi.filmes.tarde.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.10\\microsoft.aspnetcore.authentication.jwtbearer.7.0.10.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.15.1\\microsoft.identitymodel.jsonwebtokens.6.15.1.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.identitymodel.logging\\6.15.1\\microsoft.identitymodel.logging.6.15.1.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.15.1\\microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.15.1\\microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.15.1\\microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
@@ -17,7 +24,9 @@
     "C:\\Users\\39905572899\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\system.data.sqlclient\\4.8.5\\system.data.sqlclient.4.8.5.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.15.1\\system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\39905572899\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "C:\\Users\\39905572899\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
   "logs": []

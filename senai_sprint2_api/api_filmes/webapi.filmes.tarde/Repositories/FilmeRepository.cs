@@ -23,7 +23,7 @@ namespace webapi.filmes.tarde.Repositories
 
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryUpdate = "UPDATE Filme SET Titulo = '@TituloInserir', IdGenero = @IdGeneroInserir WHERE IdFilme = @IdFilme";
+                string queryUpdate = "UPDATE Filme SET Titulo = @TituloInserir, IdGenero = @IdGeneroInserir WHERE IdFilme = @IdFilme";
 
                 using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
                 {
@@ -38,27 +38,34 @@ namespace webapi.filmes.tarde.Repositories
             }
         }
 
+        /// <summary>
+        /// Atualiza um filme passando o id pelo recurso
+        /// </summary>
+        /// <param name="id">id do filme que será atualizado</param>
+        /// <param name="filme">objeto filme com as novas informações</param>
         public void AtualizarIdUrl(int id, FilmeDomain filme)
         {
+            // Declara a SqlConnection con passando a string de conexão como parâmetro
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryUpdateUrl = "UPDATE Filme SET Titulo = '@TituloInserir', IdGenero = @IdGeneroInserir WHERE IdFilme = @IdFilme";
+                // Declara a query a ser executada
+                string queryUpdateUrl = "UPDATE Filme SET Filme.IdGenero = @IdGenero, Filme.Titulo = @Titulo WHERE IdFilme = @IFilme";
 
-                con.Open();
-
+                // Declara o SqlCommand cmd passando a query que será executada e a conexão como parâmetros
                 using (SqlCommand cmd = new SqlCommand(queryUpdateUrl, con))
                 {
+                    // Passa os valores dos parâmetros
+                    cmd.Parameters.AddWithValue("@IFilme", id);
+                    cmd.Parameters.AddWithValue("@IdGenero", filme.IdGenero);
                     cmd.Parameters.AddWithValue("@Titulo", filme.Titulo);
-                    cmd.Parameters.AddWithValue("@IdGeneroInserir", filme.IdGenero);
-                    cmd.Parameters.AddWithValue("@IdFilme", id);
 
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa o comando
                     cmd.ExecuteNonQuery();
-
                 }
-
-
             }
-
         }
 
         public FilmeDomain BuscarPorId(int id)
@@ -107,7 +114,7 @@ namespace webapi.filmes.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 // Declara a instrução a ser executada passando como valor do nome o objeto
-                string queryInsert = "INSERT INTO Filme (IdGenero, Titulo) VALUES (@IdGenero, '@Titulo')";
+                string queryInsert = "INSERT INTO Filme (IdGenero, Titulo) VALUES (@IdGenero, @Titulo)";
 
                 con.Open();
 
