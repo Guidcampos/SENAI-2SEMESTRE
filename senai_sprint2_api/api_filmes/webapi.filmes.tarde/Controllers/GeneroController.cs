@@ -73,6 +73,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             try
@@ -101,6 +102,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="novoGenero">Objeto recebido na requisicao</param>
         /// <returns>STATUS CODE</returns>
         [HttpPost]
+        [Authorize (Roles = "ADM")]
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try
@@ -131,6 +133,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize(Roles = "ADM")]
         public IActionResult PutIdBody(GeneroDomain genero)
         {
             try
@@ -171,6 +174,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="genero"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
+        
         public IActionResult PutIdUrl(int id, GeneroDomain genero)
         {
             try
@@ -210,7 +214,8 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="id"></param>
         /// <returns>STATUS CODE</returns>
         [HttpDelete("{id}")]
-        //[Route("Deletar")]
+        [Authorize(Roles = "ADM")]
+
         public IActionResult Delete(int id)
         {
             try

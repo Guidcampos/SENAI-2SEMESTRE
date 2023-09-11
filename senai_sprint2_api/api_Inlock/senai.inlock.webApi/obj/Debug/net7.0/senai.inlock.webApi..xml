@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi.</name>
+    </assembly>
+    <members>
+        <member name="M:senai.inlock.webApi_.Controllers.JogoController.Get">
+            <summary>
+            Listar todos os jogos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi_.Controllers.JogoController.Get(System.Int32)">
+            <summary>
+            Listar um jogo por seu id, somente ADM
+            </summary>
+            <param name="id">id do jogo</param>
+            <returns>jogo</returns>
+        </member>
+        <member name="M:senai.inlock.webApi_.Controllers.JogoController.Post(senai.inlock.webApi_.Domains.JogoDomain)">
+            <summary>
+            Cadastrar um jogo, somente ADM
+            </summary>
+            <param name="novoJogo"></param>
+            <returns>cadastro de jogo</returns>
+        </member>
+        <member name="M:senai.inlock.webApi_.Controllers.UsuarioController.Login(senai.inlock.webApi_.Domains.UsuarioDomain)">
+            <summary>
+            Fazer login com email e senha para gerar o token
+            </summary>
+            <param name="usuario"></param>
+            <returns>token jwt</returns>
+        </member>
+    </members>
+</doc>
