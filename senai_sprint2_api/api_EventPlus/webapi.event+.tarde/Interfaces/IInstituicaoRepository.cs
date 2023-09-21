@@ -10,7 +10,7 @@ namespace webapi.event_.tarde.Interfaces
 
         List<Instituicao> Listar();
 
-        Evento BuscarPorId(Guid id);
+        Instituicao BuscarPorId(Guid id);
 
         void Atualizar(Guid id, Instituicao instituicao);
     }

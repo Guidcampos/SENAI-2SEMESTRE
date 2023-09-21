@@ -1,29 +1,30 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
 using webapi.event_.tarde.Repositories;
-using webapi.event_.tarde.Domains;
 
 namespace webapi.event_.tarde.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class InstituicaoController : ControllerBase
+    public class TipoEventoController : ControllerBase
     {
-        private readonly IInstituicaoRepository _instituicaoRepository;
-        public InstituicaoController()
+        private readonly ITipoEventoRepository _tipoEventoRepository;
+        public TipoEventoController()
         {
-            _instituicaoRepository = new InstituicaoRepository();
+            _tipoEventoRepository = new TipoEventoRepository();
         }
 
 
+
         [HttpPost]
-        public IActionResult Post(Instituicao instituicao)
+        public IActionResult Post(TipoEvento tipoEvento)
         {
             try
             {
-                _instituicaoRepository.Cadastrar(instituicao);
+                _tipoEventoRepository.Cadastrar(tipoEvento);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -33,14 +34,14 @@ namespace webapi.event_.tarde.Controllers
             }
         }
 
-       
+
 
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
             try
             {
-                _instituicaoRepository.Deletar(id);
+                _tipoEventoRepository.Deletar(id);
                 return NoContent();
             }
             catch (Exception e)
@@ -57,7 +58,7 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                return Ok( _instituicaoRepository.Listar());
+                return Ok(_tipoEventoRepository.Listar());
             }
             catch (Exception e)
             {
@@ -72,8 +73,8 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                Instituicao instBuscado = _instituicaoRepository.BuscarPorId(id);
-                return Ok(instBuscado);
+                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
+                return Ok(tipoEventoBuscado);
             }
             catch (Exception e)
             {
@@ -82,11 +83,11 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Post(Guid id, Instituicao inst)
+        public IActionResult Post(Guid id, TipoEvento tipoEvento)
         {
             try
             {
-                _instituicaoRepository.Atualizar(id, inst);
+                _tipoEventoRepository.Atualizar(id, tipoEvento);
                 return NoContent();
             }
             catch (Exception e)
@@ -96,4 +97,6 @@ namespace webapi.event_.tarde.Controllers
         }
 
     }
+
 }
+

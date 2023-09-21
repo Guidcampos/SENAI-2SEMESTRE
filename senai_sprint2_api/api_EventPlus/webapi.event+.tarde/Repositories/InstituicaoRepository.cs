@@ -14,14 +14,33 @@ namespace webapi.event_.tarde.Repositories
         }
         public void Atualizar(Guid id, Instituicao instituicao)
         {
-            throw new NotImplementedException();
+            Instituicao instBuscado = _eventContext.Instituicao.Find(id)!;
+
+            if (instBuscado != null) 
+            { 
+                instBuscado.NomeFantasia = instituicao.NomeFantasia;
+                instBuscado.Endereco = instituicao.Endereco;
+               
+            }
+
+            _eventContext.Update(instBuscado!);
+            _eventContext.SaveChanges();
         }
 
-        public Evento BuscarPorId(Guid id)
+
+        public Instituicao BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                Instituicao instbuscada = _eventContext.Instituicao.FirstOrDefault(a => a.IdInstituicao == id)!;
+                return instbuscada;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+        }
         public void Cadastrar(Instituicao instituicao)
         {
             try
@@ -57,7 +76,7 @@ namespace webapi.event_.tarde.Repositories
 
         public List<Instituicao> Listar()
         {
-            throw new NotImplementedException();
+          return  _eventContext.Instituicao.ToList();
         }
     }
 }
