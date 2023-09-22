@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.event_.tarde.Domains;
 using webapi.event_.tarde.Interfaces;
@@ -10,21 +9,21 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class EventoController : ControllerBase
+    public class ComentarioEventoController : ControllerBase
     {
-        private readonly IEventoRepository _eventoRepository;
-        public EventoController()
+        private readonly IComentarioEventoRepository _eventoRepository;
+        public ComentarioEventoController()
         {
-            _eventoRepository = new EventoRepository();
+            _eventoRepository = new ComentarioEventoRepository();
         }
 
 
         [HttpPost]
-        public IActionResult Post(Evento evento)
+        public IActionResult Post(ComentarioEvento comentarioEvento)
         {
             try
             {
-                _eventoRepository.Cadastrar(evento);
+                _eventoRepository.Cadastrar(comentarioEvento);
                 return StatusCode(201);
             }
             catch (Exception e)
@@ -53,7 +52,6 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet]
-        [Authorize]
 
         public IActionResult GetAll()
         {
@@ -74,8 +72,8 @@ namespace webapi.event_.tarde.Controllers
         {
             try
             {
-                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
-                return Ok(eventoBuscado);
+                ComentarioEvento comentarioEvento = _eventoRepository.BuscarPorId(id);
+                return Ok(comentarioEvento);
             }
             catch (Exception e)
             {
@@ -84,11 +82,11 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Post(Guid id, Evento evento)
+        public IActionResult Post(Guid id, ComentarioEvento comentarioEvento)
         {
             try
             {
-                _eventoRepository.Atualizar(id, evento);
+                _eventoRepository.Atualizar(id, comentarioEvento);
                 return NoContent();
             }
             catch (Exception e)

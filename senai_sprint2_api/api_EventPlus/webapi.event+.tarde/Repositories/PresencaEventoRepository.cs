@@ -16,14 +16,74 @@ namespace webapi.event_.tarde.Repositories
 
         public void Atualizar(Guid id, PresencaEvento presencaEvento)
         {
-            throw new NotImplementedException();
+            PresencaEvento presencaEventoBuscado = _eventContext.PresencaEvento.Find(id)!;
+
+            if (presencaEventoBuscado != null)
+            {
+                presencaEventoBuscado.Situacao = presencaEvento.Situacao;
+                presencaEventoBuscado.IdEvento = presencaEvento.IdEvento;
+                presencaEventoBuscado.IdUsuario = presencaEvento.IdUsuario;
+
+            }
+
+            _eventContext.Update(presencaEventoBuscado!);
+            _eventContext.SaveChanges();
         }
 
         public PresencaEvento BuscarPorId(Guid id)
         {
             try
             {
-                PresencaEvento presencaEventotbuscada = _eventContext.PresencaEvento.FirstOrDefault(a => a.IdPresencaEvento == id)!;
+                PresencaEvento presencaEventotbuscada = _eventContext.PresencaEvento.Select(a => new PresencaEvento
+                {
+                    IdPresencaEvento = a.IdPresencaEvento,
+                    Situacao = a.Situacao,
+                    IdEvento = a.IdEvento,
+                    IdUsuario = a.IdUsuario,
+
+                    Evento = new Evento
+                    {
+
+                        IdEvento = a.IdEvento,
+                        DataEvento = a.Evento!.DataEvento,
+                        NomeEvento = a.Evento.NomeEvento,
+                        Descricao = a.Evento.Descricao,
+                        IdTipoEvento = a.Evento.IdTipoEvento,
+                        IdInstituicao = a.Evento.IdInstituicao,
+
+                        TipoEvento = new TipoEvento
+                        {
+                            IdTipoEvento = a.Evento.IdTipoEvento,
+                            Titulo = a.Evento.TipoEvento!.Titulo,
+                        },
+
+                        Instituicao = new Instituicao
+                        {
+                            IdInstituicao = a.Evento.IdInstituicao,
+                            CNPJ = a.Evento.Instituicao!.CNPJ,
+                            Endereco = a.Evento.Instituicao.Endereco,
+                            NomeFantasia = a.Evento.Instituicao.NomeFantasia,
+
+                        }
+                    },
+
+                    Usuario = new Usuario
+                    {
+                        IdUsuario = a.Usuario!.IdUsuario,
+                        Nome = a.Usuario.Nome,
+                        Email = a.Usuario.Email,
+                        IdTipoUsuario = a.Usuario.IdTipoUsuario,
+
+                        TipoUsuario = new TipoUsuario
+                        {
+                            IdTipoUsuario = a.Usuario.IdTipoUsuario,
+                            Titulo = a.Usuario.TipoUsuario!.Titulo,
+                        }
+                    }
+
+
+                }
+            ).FirstOrDefault(a => a.IdPresencaEvento == id)!;
                 return presencaEventotbuscada;
             }
             catch (Exception)
@@ -68,7 +128,56 @@ namespace webapi.event_.tarde.Repositories
 
         public List<PresencaEvento> Listar()
         {
-            return _eventContext.PresencaEvento.ToList();
+            return _eventContext.PresencaEvento.Select(a => new PresencaEvento
+            {
+                IdPresencaEvento = a.IdPresencaEvento,
+                Situacao = a.Situacao,
+                IdEvento = a.IdEvento,
+                IdUsuario = a.IdUsuario,
+
+                Evento = new Evento
+                {
+
+                    IdEvento = a.IdEvento,
+                    DataEvento = a.Evento!.DataEvento,
+                    NomeEvento = a.Evento.NomeEvento,
+                    Descricao = a.Evento.Descricao,
+                    IdTipoEvento = a.Evento.IdTipoEvento,
+                    IdInstituicao = a.Evento.IdInstituicao,
+
+                    TipoEvento = new TipoEvento
+                    {
+                        IdTipoEvento = a.Evento.IdTipoEvento,
+                        Titulo = a.Evento.TipoEvento!.Titulo,
+                    },
+
+                    Instituicao = new Instituicao
+                    {
+                        IdInstituicao = a.Evento.IdInstituicao,
+                        CNPJ = a.Evento.Instituicao!.CNPJ,
+                        Endereco = a.Evento.Instituicao.Endereco,
+                        NomeFantasia = a.Evento.Instituicao.NomeFantasia,
+
+                    }
+                },
+
+                Usuario = new Usuario
+                {
+                    IdUsuario = a.Usuario!.IdUsuario,
+                    Nome = a.Usuario.Nome,
+                    Email = a.Usuario.Email,
+                    IdTipoUsuario = a.Usuario.IdTipoUsuario,
+
+                    TipoUsuario = new TipoUsuario
+                    {
+                        IdTipoUsuario = a.Usuario.IdTipoUsuario,
+                        Titulo = a.Usuario.TipoUsuario!.Titulo,    
+                    }
+                }
+
+
+            }
+            ).ToList();
         }
 
     }

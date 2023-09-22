@@ -79,9 +79,9 @@ builder.Services.AddAuthentication(options =>
         //Tempo de expiração do token
         ClockSkew = TimeSpan.FromMinutes(30),
         //Nome da issuer, de onde está vindo
-        ValidIssuer = "webapi.eventplus.codefirst",
+        ValidIssuer = "webapi.event+.tarde",
         //Nome da audience, de onde está vindo
-        ValidAudience = "webapi.eventplus.codefirst"
+        ValidAudience = "webapi.event+.tarde"
     };
 });
 

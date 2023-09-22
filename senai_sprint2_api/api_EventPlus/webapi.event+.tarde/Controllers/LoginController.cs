@@ -44,8 +44,8 @@ namespace webapi.event_.tarde.Controllers
 
                 var token = new JwtSecurityToken
                     (
-                    issuer: "webapi.eventplus.codefirst",
-                    audience: "webapi.eventplus.codefirst",
+                    issuer: "webapi.event+.tarde",
+                    audience: "webapi.event+.tarde",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(5),
                     signingCredentials: creds
