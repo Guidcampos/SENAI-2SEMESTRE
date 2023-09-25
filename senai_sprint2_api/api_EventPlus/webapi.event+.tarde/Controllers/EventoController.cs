@@ -53,7 +53,7 @@ namespace webapi.event_.tarde.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        
 
         public IActionResult GetAll()
         {
