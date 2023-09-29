@@ -4,26 +4,26 @@ using HealthClinic_tarde.Interfaces;
 
 namespace HealthClinic_tarde.Repositories
 {
-    public class EspecialidaRepository : IEspecialidadeRepository
+    public class PacienteRepository : IPacienteRepository
     {
         private readonly HealthContext _healthcontext;
 
-        public EspecialidaRepository()
+        public PacienteRepository()
         {
             _healthcontext = new HealthContext();
         }
 
-        public void Atualizar(Guid id, Especialidade especialidade)
+        public void Atualizar(Guid id, Paciente paciente)
         {
             throw new NotImplementedException();
         }
 
-        public Especialidade BuscarPorId(Guid id)
+        public Paciente BuscarPorId(Guid id)
         {
             try
             {
-                Especialidade especialidadeBusc = _healthcontext.Especialidade.FirstOrDefault(a => a.IdEspecialidade == id)!;
-                return especialidadeBusc;
+                Paciente pacienteBusc = _healthcontext.Paciente.FirstOrDefault(a => a.IdPaciente == id)!;
+                return pacienteBusc;
             }
             catch (Exception)
             {
@@ -32,11 +32,11 @@ namespace HealthClinic_tarde.Repositories
             }
         }
 
-        public void Cadastrar(Especialidade especialidade)
+        public void Cadastrar(Paciente paciente)
         {
             try
             {
-                _healthcontext.Add(especialidade);
+                _healthcontext.Paciente.Add(paciente);
                 _healthcontext.SaveChanges();
             }
             catch (Exception)
@@ -50,8 +50,12 @@ namespace HealthClinic_tarde.Repositories
         {
             try
             {
-                _healthcontext.Especialidade.Remove(BuscarPorId(id));
-                _healthcontext.SaveChanges();
+                Paciente pacienteBuscado = _healthcontext.Paciente.FirstOrDefault(a => a.IdPaciente == id)!;
+                if (pacienteBuscado != null)
+                {
+                    _healthcontext.Remove(pacienteBuscado);
+                    _healthcontext.SaveChanges();
+                }
 
             }
             catch (Exception)
@@ -59,11 +63,13 @@ namespace HealthClinic_tarde.Repositories
 
                 throw;
             }
+
+
         }
 
-        public List<Especialidade> Listar()
+        public List<Paciente> Listar()
         {
-            return _healthcontext.Especialidade.ToList();
+           return _healthcontext.Paciente.ToList();
         }
     }
 }

@@ -161,12 +161,12 @@ namespace HealthClinic_tarde.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<Guid>("IdConsulta")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("MedicoIdMedico")
+                    b.Property<Guid?>("MedicoIdMedico")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("IdProntuario");
@@ -222,6 +222,9 @@ namespace HealthClinic_tarde.Migrations
                         .HasColumnType("VARCHAR(10)");
 
                     b.HasKey("IdUsuario");
+
+                    b.HasIndex("EmailUsuario")
+                        .IsUnique();
 
                     b.HasIndex("IdClinica");
 
@@ -297,9 +300,7 @@ namespace HealthClinic_tarde.Migrations
 
                     b.HasOne("HealthClinic_tarde.Domains.Medico", "Medico")
                         .WithMany()
-                        .HasForeignKey("MedicoIdMedico")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MedicoIdMedico");
 
                     b.Navigation("Consulta");
 

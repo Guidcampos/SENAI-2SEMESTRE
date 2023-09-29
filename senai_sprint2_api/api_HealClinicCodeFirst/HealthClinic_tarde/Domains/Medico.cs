@@ -24,14 +24,14 @@ namespace HealthClinic_tarde.Domains
 
         [ForeignKey(nameof(IdUsuario))]
 
-        public Usuario Usuario { get; set;}
+        public Usuario? Usuario { get; set;}
 
         [Required(ErrorMessage = "A Especialidade é obrigatoria ")]
         public Guid IdEspecialidade { get; set; }
 
         [ForeignKey(nameof(IdEspecialidade))]
 
-        public Especialidade Especialidade { get; set;}
+        public Especialidade? Especialidade { get; set;}
 
     }
 }

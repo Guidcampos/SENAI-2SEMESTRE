@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace HealthClinic_tarde.Domains
 {
     [Table(nameof(Usuario))]
-
+    [Index(nameof(EmailUsuario), IsUnique = true)]
     public class Usuario
     {
         [Key]
@@ -20,13 +21,13 @@ namespace HealthClinic_tarde.Domains
         [Required(ErrorMessage = "O Email é obrigatorio")]
         [EmailAddress(ErrorMessage = "Digite um email valido")]
 
-        public string EmailUsuario { get; set; }
+        public string? EmailUsuario { get; set; }
 
         [Column(TypeName = "VARCHAR(10)")]
         [Required(ErrorMessage = "A senha é obrigatoria")]
         [StringLength(10, MinimumLength = 6, ErrorMessage = "A senha deve ter entre 6 a 10 caracteres")]
 
-        public string SenhaUsuario { get; set; }
+        public string? SenhaUsuario { get; set; }
 
         //CHAVES ESTRANGEIRAS
 
@@ -35,7 +36,7 @@ namespace HealthClinic_tarde.Domains
         public Guid IdClinica { get; set; }
 
         [ForeignKey(nameof(IdClinica))]
-        public Clinica Clinica { get; set; }
+        public Clinica? Clinica { get; set; }
 
         [Required(ErrorMessage = "O Tipo de usuario é necessario")]
 
@@ -43,7 +44,7 @@ namespace HealthClinic_tarde.Domains
 
         [ForeignKey(nameof(IdTipoUsuario))]
 
-        public TipoUsuario TipoUsuario { get; set; }
+        public TipoUsuario? TipoUsuario { get; set; }
 
 
 

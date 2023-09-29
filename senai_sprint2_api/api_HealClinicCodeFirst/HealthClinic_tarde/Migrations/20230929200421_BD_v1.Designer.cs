@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthClinic_tarde.Migrations
 {
     [DbContext(typeof(HealthContext))]
-    [Migration("20230926191616_BD_V1")]
-    partial class BD_V1
+    [Migration("20230929200421_BD_v1")]
+    partial class BD_v1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -164,12 +164,12 @@ namespace HealthClinic_tarde.Migrations
 
                     b.Property<string>("Descricao")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(100");
+                        .HasColumnType("VARCHAR(100)");
 
                     b.Property<Guid>("IdConsulta")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("MedicoIdMedico")
+                    b.Property<Guid?>("MedicoIdMedico")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("IdProntuario");
@@ -225,6 +225,9 @@ namespace HealthClinic_tarde.Migrations
                         .HasColumnType("VARCHAR(10)");
 
                     b.HasKey("IdUsuario");
+
+                    b.HasIndex("EmailUsuario")
+                        .IsUnique();
 
                     b.HasIndex("IdClinica");
 
@@ -300,9 +303,7 @@ namespace HealthClinic_tarde.Migrations
 
                     b.HasOne("HealthClinic_tarde.Domains.Medico", "Medico")
                         .WithMany()
-                        .HasForeignKey("MedicoIdMedico")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MedicoIdMedico");
 
                     b.Navigation("Consulta");
 

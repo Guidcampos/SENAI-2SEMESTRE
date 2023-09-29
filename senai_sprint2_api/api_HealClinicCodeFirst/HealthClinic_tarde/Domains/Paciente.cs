@@ -23,7 +23,7 @@ namespace HealthClinic_tarde.Domains
         public Guid IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
 
         
     }

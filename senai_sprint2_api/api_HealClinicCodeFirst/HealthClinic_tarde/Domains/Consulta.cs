@@ -21,21 +21,21 @@ namespace HealthClinic_tarde.Domains
         public Guid IdClinica { get; set; }
 
         [ForeignKey(nameof(IdClinica))]
-        public Clinica Clinica { get; set; }
+        public Clinica? Clinica { get; set; }
 
 
         [Required(ErrorMessage = "O Medico é obrigatorio")]
         public Guid IdMedico { get; set; }
 
         [ForeignKey(nameof(IdMedico))]
-        public Medico Medico { get; set; }
+        public Medico? Medico { get; set; }
         
         
         [Required(ErrorMessage = "O Paciente é obrigatorio")]
         public Guid IdPaciente { get; set; }
 
         [ForeignKey(nameof(IdPaciente))]
-        public Paciente Paciente { get; set; }
+        public Paciente? Paciente { get; set; }
 
 
 

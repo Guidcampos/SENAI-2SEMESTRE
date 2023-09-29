@@ -1,6 +1,6 @@
 ﻿namespace HealthClinic_tarde.Utils
 {
-    public class Criptografia
+    public static class Criptografia
     {
         /// <summary>
         /// Gera uma Hash a partir de uma senha
@@ -10,7 +10,7 @@
         public static string GerarHash(string senha)
         {
             return BCrypt.Net.BCrypt.HashPassword(senha);
-        }
+        }   
 
         /// <summary>
         /// Verifica se a hash da senha informada é igual á hash salva no bd

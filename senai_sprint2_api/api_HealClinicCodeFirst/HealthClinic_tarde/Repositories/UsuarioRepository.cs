@@ -7,18 +7,18 @@ namespace HealthClinic_tarde.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly HealthContext _HealthContext;
+        private readonly HealthContext _healthcontext;
 
         public UsuarioRepository() 
         { 
-            _HealthContext = new HealthContext();
+            _healthcontext = new HealthContext();
         }
 
         public Usuario BuscarEmailSenha(string email, string senha)
         {
             try
             {
-                Usuario usuarioBuscado = _HealthContext.Usuario.Select(a => new Usuario
+                Usuario usuarioBuscado = _healthcontext.Usuario.Select(a => new Usuario
                 {
                     IdUsuario = a.IdUsuario,
                     NomeUsuario = a.NomeUsuario,
@@ -29,7 +29,7 @@ namespace HealthClinic_tarde.Repositories
 
                 if (usuarioBuscado != null)
                 {
-                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.SenhaUsuario);
+                    bool confere = Criptografia.CompararHash(senha, usuarioBuscado.SenhaUsuario!);
                     return usuarioBuscado;
                 } return null!;
             }
@@ -44,7 +44,7 @@ namespace HealthClinic_tarde.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = _HealthContext.Usuario.FirstOrDefault(a => a.IdUsuario == id)!;
+                Usuario usuarioBuscado = _healthcontext.Usuario.FirstOrDefault(a => a.IdUsuario == id)!;
                 return usuarioBuscado;
             }
             catch (Exception)
@@ -54,12 +54,15 @@ namespace HealthClinic_tarde.Repositories
             }
         }
 
-        public void Cadastrar(Usuario usuario)
+        public void Cadastrar(Usuario novoUsuario)
         {
             try
             {
-                _HealthContext.Usuario.Add(usuario);
-                _HealthContext.SaveChanges();
+
+                 novoUsuario.SenhaUsuario = Criptografia.GerarHash(novoUsuario.SenhaUsuario!);
+                _healthcontext.Usuario.Add(novoUsuario);
+                _healthcontext.SaveChanges();
+
             }
             catch (Exception)
             {
@@ -71,7 +74,7 @@ namespace HealthClinic_tarde.Repositories
         public List<Usuario> Listar()
         {
             
-              return  _HealthContext.Usuario.ToList();
+              return  _healthcontext.Usuario.ToList();
             
         }
     }

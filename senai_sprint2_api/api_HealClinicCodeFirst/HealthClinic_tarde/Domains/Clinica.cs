@@ -25,7 +25,7 @@ namespace HealthClinic_tarde.Domains
 
         [Column(TypeName = "CHAR(14)")]
         [Required(ErrorMessage = "CNJP obrigatorio")]
-        [StringLength(14, ErrorMessage = "O CNPJ deve ter 14 caracteres!" )]
+        [StringLength(14, MinimumLength = 14, ErrorMessage = "O CNPJ deve ter 14 caracteres!" )]
 
         public string CNPJ { get; set; }
 

@@ -20,11 +20,11 @@ namespace HealthClinic_tarde.Domains
         public Guid IdConsulta { get; set; }
         [ForeignKey(nameof(IdConsulta))]
 
-        public Consulta Consulta { get; set; }
+        public Consulta? Consulta { get; set; }
         
       
 
-        public Medico Medico { get; set; }
+        public Medico? Medico { get; set; }
 
     }
 }

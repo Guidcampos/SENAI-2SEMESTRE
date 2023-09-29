@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HealthClinic_tarde.Migrations
 {
     /// <inheritdoc />
-    public partial class BD_V1 : Migration
+    public partial class BD_v1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -57,7 +57,7 @@ namespace HealthClinic_tarde.Migrations
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     NomeUsuario = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     EmailUsuario = table.Column<string>(type: "VARCHAR(100)", nullable: false),
-                    SenhaUsuario = table.Column<string>(type: "VARCHAR(10)", maxLength: 10, nullable: false),
+                    SenhaUsuario = table.Column<string>(type: "VARCHAR(60)", maxLength: 10, nullable: false),
                     IdClinica = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -163,7 +163,7 @@ namespace HealthClinic_tarde.Migrations
                     IdProntuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Descricao = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     IdConsulta = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    MedicoIdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    MedicoIdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -178,8 +178,7 @@ namespace HealthClinic_tarde.Migrations
                         name: "FK_Prontuario_Medico_MedicoIdMedico",
                         column: x => x.MedicoIdMedico,
                         principalTable: "Medico",
-                        principalColumn: "IdMedico",
-                        onDelete: ReferentialAction.NoAction);
+                        principalColumn: "IdMedico");
                 });
 
             migrationBuilder.CreateIndex(
@@ -250,6 +249,12 @@ namespace HealthClinic_tarde.Migrations
                 name: "IX_TipoUsuario_NomeTipoUsuario",
                 table: "TipoUsuario",
                 column: "NomeTipoUsuario",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuario_EmailUsuario",
+                table: "Usuario",
+                column: "EmailUsuario",
                 unique: true);
 
             migrationBuilder.CreateIndex(

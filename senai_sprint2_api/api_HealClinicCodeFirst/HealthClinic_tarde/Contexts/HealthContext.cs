@@ -13,6 +13,8 @@ namespace HealthClinic_tarde.Contexts
         public DbSet<Medico> Medico { get; set; }
         public DbSet<Prontuario> Prontuario { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
+
+        public DbSet<Paciente> Paciente { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = NOTE10-S15; Database = HealthClinic_tarde; User Id = sa; Password = Senai@134; TrustServerCertificate = True;");

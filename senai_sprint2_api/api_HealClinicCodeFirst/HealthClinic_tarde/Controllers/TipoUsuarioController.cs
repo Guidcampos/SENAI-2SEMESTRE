@@ -9,46 +9,45 @@ namespace HealthClinic_tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class UsuarioController : ControllerBase
+    public class TipoUsuarioController : ControllerBase
     {
-        private IUsuarioRepository _usuarioRepository;
+        private ITipoUsuarioRepository _tipoUsuariorepositoryRepository;
 
-        public UsuarioController()
+        public TipoUsuarioController()
         {
-            _usuarioRepository = new UsuarioRepository();
+            _tipoUsuariorepositoryRepository = new TipoUsuarioRepository();
+
         }
 
         [HttpPost]
 
-        public IActionResult Cadastrar (Usuario usuario)
+        public IActionResult Cadastrar(TipoUsuario tipoUsuario)
         {
             try
             {
-                _usuarioRepository.Cadastrar(usuario);
+                _tipoUsuariorepositoryRepository.Cadastrar(tipoUsuario);
                 return StatusCode(201);
-
             }
             catch (Exception e)
             {
-
                 return BadRequest(e.Message);
-            };
-        }
+            }
 
+        }
 
         [HttpGet]
-
-        public IActionResult listar()
+        public IActionResult Listar()
         {
             try
             {
-                return Ok(_usuarioRepository.Listar());
+                return Ok(_tipoUsuariorepositoryRepository.Listar());
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                return BadRequest(e.Message);
+                return BadRequest(error.Message);
             }
-        }
 
+
+        }
     }
 }
