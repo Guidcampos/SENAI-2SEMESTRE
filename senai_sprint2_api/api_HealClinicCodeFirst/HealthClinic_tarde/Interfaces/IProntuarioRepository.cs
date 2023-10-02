@@ -5,7 +5,7 @@ namespace HealthClinic_tarde.Interfaces
     public interface IProntuarioRepository
     {
 
-        void Cadastrar(Prontuario clinica);
+        void Cadastrar(Prontuario prontuario);
 
         void Deletar(Guid id);
 

@@ -23,7 +23,14 @@ namespace HealthClinic_tarde.Repositories
                     IdUsuario = a.IdUsuario,
                     NomeUsuario = a.NomeUsuario,
                     EmailUsuario = a.EmailUsuario,
-                    SenhaUsuario = a.SenhaUsuario
+                    SenhaUsuario = a.SenhaUsuario,
+                    TipoUsuario = new TipoUsuario
+                    {
+                        IdTipoUsuario = a.IdTipoUsuario,
+                        NomeTipoUsuario = a.TipoUsuario!.NomeTipoUsuario
+                    }
+
+                   
                     
                 }).FirstOrDefault(r => r.EmailUsuario == email)!;
 

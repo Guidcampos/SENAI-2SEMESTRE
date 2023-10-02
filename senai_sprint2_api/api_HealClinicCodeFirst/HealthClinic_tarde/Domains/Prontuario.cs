@@ -24,7 +24,7 @@ namespace HealthClinic_tarde.Domains
         
       
 
-        public Medico? Medico { get; set; }
+      
 
     }
 }

@@ -4,6 +4,27 @@
         <name>HealthClinic_tarde</name>
     </assembly>
     <members>
+        <member name="M:HealthClinic_tarde.Controllers.ConsultaController.Delete(System.Guid)">
+            <summary>
+            deleta uma consulta
+            </summary>
+            <param name="id">id da consulta</param>
+            <returns>status code noContent</returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ConsultaController.ListarPacientes(System.Guid)">
+            <summary>
+            Listar consultas do paciente
+            </summary>
+            <param name="id">ID DO PACIENTE</param>
+            <returns>Todas as consultas daquele paciente</returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ConsultaController.ListarMedico(System.Guid)">
+            <summary>
+            Lista as consultas do medico
+            </summary>
+            <param name="id">id do medico</param>
+            <returns>Lista das consultas do medico</returns>
+        </member>
         <member name="T:HealthClinic_tarde.Migrations.BD_v1">
             <inheritdoc />
         </member>
