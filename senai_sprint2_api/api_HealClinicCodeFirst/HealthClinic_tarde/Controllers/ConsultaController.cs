@@ -9,6 +9,7 @@ namespace HealthClinic_tarde.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class ConsultaController : ControllerBase
     {
 
@@ -19,7 +20,11 @@ namespace HealthClinic_tarde.Controllers
             _consultaRepository = new ConsultaRepository();
 
         }
-
+        /// <summary>
+        /// Metodo para cadastrar consulta
+        /// </summary>
+        /// <param name="consulta"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Consulta consulta)
         {
@@ -34,7 +39,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-        [Authorize]
+        /// <summary>
+        /// Metodo para listar consultas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -49,7 +57,7 @@ namespace HealthClinic_tarde.Controllers
             }
         }
         /// <summary>
-        /// deleta uma consulta
+        /// Metodo para deletar uma consulta
         /// </summary>
         /// <param name="id">id da consulta</param>
         /// <returns>status code noContent</returns>

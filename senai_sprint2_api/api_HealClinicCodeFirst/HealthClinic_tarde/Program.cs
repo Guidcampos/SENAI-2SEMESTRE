@@ -1,6 +1,8 @@
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using HealthClinic_tarde.Utils;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +27,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 
     //Configure o Swagger para usar o arquivo XML gerado
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
     //Usando a autenticação no swagger
@@ -106,9 +108,9 @@ app.UseSwaggerUI(options =>
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

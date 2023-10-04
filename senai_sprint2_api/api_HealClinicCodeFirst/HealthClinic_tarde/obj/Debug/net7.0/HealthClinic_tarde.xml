@@ -4,9 +4,42 @@
         <name>HealthClinic_tarde</name>
     </assembly>
     <members>
+        <member name="M:HealthClinic_tarde.Controllers.ClinicaController.Cadastrar(HealthClinic_tarde.Domains.Clinica)">
+            <summary>
+            Metodo de cadastro de clinica
+            </summary>
+            <param name="clinica"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ClinicaController.Listar">
+            <summary>
+            Metodo para listar clinicas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ClinicaController.Delete(System.Guid)">
+            <summary>
+            Metodo para deletar clinica
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ConsultaController.Cadastrar(HealthClinic_tarde.Domains.Consulta)">
+            <summary>
+            Metodo para cadastrar consulta
+            </summary>
+            <param name="consulta"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ConsultaController.Listar">
+            <summary>
+            Metodo para listar consultas
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:HealthClinic_tarde.Controllers.ConsultaController.Delete(System.Guid)">
             <summary>
-            deleta uma consulta
+            Metodo para deletar uma consulta
             </summary>
             <param name="id">id da consulta</param>
             <returns>status code noContent</returns>
@@ -24,6 +57,119 @@
             </summary>
             <param name="id">id do medico</param>
             <returns>Lista das consultas do medico</returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.EspecialidadeController.Cadastrar(HealthClinic_tarde.Domains.Especialidade)">
+            <summary>
+            Metodo para cadastrar especialidade
+            </summary>
+            <param name="especialidade"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.EspecialidadeController.Listar">
+            <summary>
+            Metodo para listar especialidades
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.EspecialidadeController.Delete(System.Guid)">
+            <summary>
+            Metodo para deletar especialidade
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.LoginController.Login(HealthClinic_tarde.ViewModels.LoginViewModel)">
+            <summary>
+            Metodo para realizar login, gerar token
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.MedicoController.Cadastrar(HealthClinic_tarde.Domains.Medico)">
+            <summary>
+            Metodo para cadastrar medico
+            </summary>
+            <param name="medico"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.MedicoController.Listar">
+            <summary>
+            Metodo para listar medico
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.MedicoController.Delete(System.Guid)">
+            <summary>
+            Metodo para deletar medico
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.PacienteController.Cadastrar(HealthClinic_tarde.Domains.Paciente)">
+            <summary>
+            Metodo para cadastrar paciente
+            </summary>
+            <param name="paciente"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.PacienteController.Listar">
+            <summary>
+            Metodo para listar paciente
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.PacienteController.Delete(System.Guid)">
+            <summary>
+            Metodo para deletar paciente
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ProntuarioController.Cadastrar(HealthClinic_tarde.Domains.Prontuario)">
+            <summary>
+            Metodo para cadastrar prontuario
+            </summary>
+            <param name="prontuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ProntuarioController.Listar">
+            <summary>
+            Metodo para listar prontuarios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.ProntuarioController.Delete(System.Guid)">
+            <summary>
+            Metodo para deletar prontuario
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.TipoUsuarioController.Cadastrar(HealthClinic_tarde.Domains.TipoUsuario)">
+            <summary>
+            Metodo para cadastrar tipo de usuario
+            </summary>
+            <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.TipoUsuarioController.Listar">
+            <summary>
+            Metodo para listar tipo de usuario
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.UsuarioController.Cadastrar(HealthClinic_tarde.Domains.Usuario)">
+            <summary>
+            Metodo para cadastrar usuario
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HealthClinic_tarde.Controllers.UsuarioController.listar">
+            <summary>
+            Metodo para listar usuario
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:HealthClinic_tarde.Migrations.BD_v1">
             <inheritdoc />

@@ -20,7 +20,11 @@ namespace HealthClinic_tarde.Controllers
         {
             _usuarioRepository = new UsuarioRepository();
         }
-
+        /// <summary>
+        /// Metodo para realizar login, gerar token
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Login(LoginViewModel usuario)
         {
@@ -35,7 +39,7 @@ namespace HealthClinic_tarde.Controllers
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.EmailUsuario!),
                     new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario!),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.NomeTipoUsuario!),
+                   new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario!.NomeTipoUsuario!.ToString())
                     };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("healthclinic-chave-autenticacao-webapi"));

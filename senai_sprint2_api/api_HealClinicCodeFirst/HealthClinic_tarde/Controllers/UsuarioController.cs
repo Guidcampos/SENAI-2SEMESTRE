@@ -17,7 +17,11 @@ namespace HealthClinic_tarde.Controllers
         {
             _usuarioRepository = new UsuarioRepository();
         }
-
+        /// <summary>
+        /// Metodo para cadastrar usuario
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         [HttpPost]
 
         public IActionResult Cadastrar (Usuario usuario)
@@ -35,7 +39,10 @@ namespace HealthClinic_tarde.Controllers
             };
         }
 
-
+        /// <summary>
+        /// Metodo para listar usuario
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
 
         public IActionResult listar()

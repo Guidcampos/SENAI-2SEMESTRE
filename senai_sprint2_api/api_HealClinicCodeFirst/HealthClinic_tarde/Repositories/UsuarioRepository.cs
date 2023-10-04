@@ -37,7 +37,11 @@ namespace HealthClinic_tarde.Repositories
                 if (usuarioBuscado != null)
                 {
                     bool confere = Criptografia.CompararHash(senha, usuarioBuscado.SenhaUsuario!);
-                    return usuarioBuscado;
+                    if (confere)
+                    {
+                        return usuarioBuscado;
+                    }
+                   
                 } return null!;
             }
             catch (Exception)

@@ -18,7 +18,11 @@ namespace HealthClinic_tarde.Controllers
             _pacienteRepository = new PacienteRepository();
 
         }
-
+        /// <summary>
+        /// Metodo para cadastrar paciente
+        /// </summary>
+        /// <param name="paciente"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Paciente paciente)
         {
@@ -33,7 +37,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Metodo para listar paciente
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -47,7 +54,11 @@ namespace HealthClinic_tarde.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Metodo para deletar paciente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
 
         public IActionResult Delete(Guid id)

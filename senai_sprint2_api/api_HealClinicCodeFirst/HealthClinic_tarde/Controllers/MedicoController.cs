@@ -18,7 +18,11 @@ namespace HealthClinic_tarde.Controllers
             _medicoRepository = new MedicoRepository();
 
         }
-
+        /// <summary>
+        /// Metodo para cadastrar medico
+        /// </summary>
+        /// <param name="medico"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Medico medico)
         {
@@ -33,7 +37,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Metodo para listar medico
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -47,7 +54,11 @@ namespace HealthClinic_tarde.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Metodo para deletar medico
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
 
         public IActionResult Delete(Guid id)

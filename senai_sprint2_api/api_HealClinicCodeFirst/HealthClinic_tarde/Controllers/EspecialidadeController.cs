@@ -19,7 +19,11 @@ namespace HealthClinic_tarde.Controllers
             _especialidadeRepository= new EspecialidadeRepository();
                                          
         }
-
+        /// <summary>
+        /// Metodo para cadastrar especialidade
+        /// </summary>
+        /// <param name="especialidade"></param>
+        /// <returns></returns>
         [HttpPost]
 
         public IActionResult Cadastrar(Especialidade especialidade)
@@ -35,7 +39,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Metodo para listar especialidades
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -50,7 +57,11 @@ namespace HealthClinic_tarde.Controllers
 
 
         }
-
+        /// <summary>
+        /// Metodo para deletar especialidade
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
 
         public IActionResult Delete(Guid id)

@@ -19,7 +19,11 @@ namespace HealthClinic_tarde.Controllers
             _prontuarioRepository = new ProntuarioRepository();
 
         }
-
+        /// <summary>
+        /// Metodo para cadastrar prontuario
+        /// </summary>
+        /// <param name="prontuario"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Prontuario prontuario)
         {
@@ -34,7 +38,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Metodo para listar prontuarios
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -48,7 +55,11 @@ namespace HealthClinic_tarde.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Metodo para deletar prontuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
 
         public IActionResult Delete(Guid id)

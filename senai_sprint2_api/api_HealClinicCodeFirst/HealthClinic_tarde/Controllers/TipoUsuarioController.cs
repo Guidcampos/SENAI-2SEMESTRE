@@ -18,7 +18,11 @@ namespace HealthClinic_tarde.Controllers
             _tipoUsuariorepositoryRepository = new TipoUsuarioRepository();
 
         }
-
+        /// <summary>
+        /// Metodo para cadastrar tipo de usuario
+        /// </summary>
+        /// <param name="tipoUsuario"></param>
+        /// <returns></returns>
         [HttpPost]
 
         public IActionResult Cadastrar(TipoUsuario tipoUsuario)
@@ -34,7 +38,10 @@ namespace HealthClinic_tarde.Controllers
             }
 
         }
-
+        /// <summary>
+        /// Metodo para listar tipo de usuario
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {

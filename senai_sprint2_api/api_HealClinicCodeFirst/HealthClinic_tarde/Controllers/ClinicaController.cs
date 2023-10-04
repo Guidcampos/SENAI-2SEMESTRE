@@ -18,7 +18,11 @@ namespace HealthClinic_tarde.Controllers
             _clinicaRepository = new ClinicaRepository();
         }
 
-
+        /// <summary>
+        /// Metodo de cadastro de clinica
+        /// </summary>
+        /// <param name="clinica"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Cadastrar(Clinica clinica)
         {
@@ -33,7 +37,10 @@ namespace HealthClinic_tarde.Controllers
             }
            
         }
-
+        /// <summary>
+        /// Metodo para listar clinicas
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Listar()
         {
@@ -48,7 +55,11 @@ namespace HealthClinic_tarde.Controllers
 
             
         }
-
+        /// <summary>
+        /// Metodo para deletar clinica
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
 
         public IActionResult Delete(Guid id)
