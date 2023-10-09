@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Simple Calc</h1>
+
+    <form>
+        <label for="numero1">Primeiro numero: </label>
+        <input type="number" placeholder="Primeiro numero" id="numero1">
+        <br>
+        <br>
+
+        <label for="numero2">Segundo numero: </label>
+        <input type="number" placeholder="Segundo numero" id="numero2">
+        <br>
+        <br>
+
+        <label for="op">Escolha a operação: </label>
+        <select name="" id="op">
+            <option value=""></option>
+            <option value="+">Soma</option>
+            <option value="-">Subtração</option>
+            <option value="/">Divisão</option>
+            <option value="*">Mltiplicação</option>
+        </select>
+
+
+        <br>
+        <br>
+
+        <button onclick="calcular()">Calcular</button>
+    </form>
+
+    <script>
+        function calcular() {
+            event.preventDefault();
+
+            let n1 = parseFloat(document.getElementById("numero1").value);
+            let n2 = parseFloat(document.getElementById("numero2").value);
+            let n3;
+            let op = document.getElementById("op").value;
+
+            if (op == `+`) {
+                n3 = somar(n1, n2);
+                console.log(n3);
+            }
+            else if (op == `-`) {
+                n3 = subtrair(n1, n2);
+                console.log(n3);
+            }
+            else if (op == '/') {
+                n3 = dividir(n1, n2);
+                console.log(n3);
+            }
+            else if (op == '*') {
+                n3 = multiplicar(n1, n2);
+                console.log(n3);
+            }
+            else {
+                alert("Operação invalida");
+                console.log("Opeção invalida");
+            }
+            alert(`${n3}`);
+        };
+
+        function somar(x, y) {
+
+            return x + y;
+
+        }
+        function subtrair(x, y) {
+
+            return x - y;
+
+        }
+        function dividir(x, y) {
+
+            return x / y;
+
+        }
+        function multiplicar(x, y) {
+
+            return x * y;
+
+        }
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
