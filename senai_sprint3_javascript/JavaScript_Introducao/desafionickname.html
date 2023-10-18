@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro </h1>
+    <form action="" onsubmit="cadastro()">
+        <label for="nome">Nome: </label>
+        <input type="text" placeholder="Insira seu nome:" id="nome">
+        <br>
+        <br>
+        
+        <label for="nickname">Nickname: </label>
+        <input type="text" placeholder="Como quer ser chamado:" id="nickname">
+        <br>
+        <br>
+
+        <button >Cadastrar</button>
+    </form>
+
+    <script>
+        // event.preventDefault();
+
+        
+        function cadastro() {
+            let nick = document.getElementById("nickname").value;
+            console.log(nickname);
+            alert(`Olá ${nick}, seu cadastro foi efetuado com sucesso!`)
+        }
+
+
+    </script>
+
+
+</body>
+</html>
