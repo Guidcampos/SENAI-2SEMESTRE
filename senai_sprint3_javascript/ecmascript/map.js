@@ -1,5 +1,7 @@
 // FOREACH - RETORNA VOID
 
+// --------------------------------------------------------------------------------------------------------
+
 // MAP - RETORNA UM ARRAY MODIFICADO
 // const numeros = [1,2,5,10,300];
 
@@ -10,6 +12,7 @@
 // console.log(numeros);
 // console.log(dobro);
 
+// ----------------------------------------------------------------------------------------------------------
 
 // FILTER - RETORNA NOVO ARRAY APENAS ELEMENTOS QUE ATENDERAM A UMA CONDIÇÃO
 
@@ -22,18 +25,22 @@
 // console.log(maior10);
 
 
-const comentarios = [
-    { comentario: "bla bla bla", exibe: true },
-    { comentario: "bb blsdfgdsfgfdga bla", exibe: false },
-    { comentario: "bilu bilu bilu", exibe: true }
-]
+// const comentarios = [
+//     { comentario: "bla bla bla", exibe: true },
+//     { comentario: "bb blsdfgdsfgfdga bla", exibe: false },
+//     { comentario: "bilu bilu bilu", exibe: true }
+// ]
 
-const comentariosOk = comentarios.filter((a) => {
-    return a.exibe;
+// const comentariosOk = comentarios.filter((a) => {
+//     return a.exibe;
 
-})
+// })
 
-comentariosOk.forEach((e) => {
-    console.log(`comentarios: ${e.comentario}`);
-})
+// comentariosOk.forEach((e) => {
+//     console.log(`comentarios: ${e.comentario}`);
+// })
+
+// ------------------------------------------------------------------------------------------------------------------------------------
+
+// REDUCES - 
 
