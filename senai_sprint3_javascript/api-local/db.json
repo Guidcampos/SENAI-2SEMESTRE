@@ -1,0 +1,15 @@
+{
+  "contatos": [
+    {
+      "nome": "Guilherme de campos",
+      "telefone": "11958971561",
+      "cep": "08675238",
+      "endereco": "Rua Baruel",
+      "numero": "929",
+      "bairro": "Jardim Paulista",
+      "cidade": "Suzano",
+      "estado": "SP",
+      "id": 1
+    }
+  ]
+}
