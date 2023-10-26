@@ -1,0 +1,49 @@
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    font-family:Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+.card__titulo{
+    width: 144px;
+    height: 27px;
+    font-size: 18px;
+}
+
+.card__descricao {
+    width: 192px;
+    height: 72px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.card__conectar {
+    width: 85px;
+    height: 27px;
+    color: red;
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.card__conectar:hover{
+    color: brown;
+}
+
+.card__conectar--disable {
+    cursor: not-allowed;
+    color: lightgray;
+}
+
+.card__conectar--disable:hover{
+    color: lightgray;
+}
