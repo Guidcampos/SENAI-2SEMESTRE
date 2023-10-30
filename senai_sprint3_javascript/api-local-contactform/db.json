@@ -1,0 +1,38 @@
+{
+  "contatos": [
+    {
+      "cep": "08675238",
+      "rua": "Rua Baruel",
+      "numero": "929",
+      "complemento": "casa",
+      "bairro": "Jardim Paulista",
+      "cidade": "Suzano",
+      "uf": "SP",
+      "nome": "guilherme",
+      "sobrenome": "campos ribeiro",
+      "email": "guilherme.campos.r@hotmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "958971561",
+      "anotacoes": "endereço principal",
+      "id": 1
+    },
+    {
+      "cep": "08675238",
+      "rua": "Rua Baruel",
+      "numero": "929",
+      "complemento": "casa",
+      "bairro": "Jardim Paulista",
+      "cidade": "Suzano",
+      "uf": "SP",
+      "nome": "jose",
+      "sobrenome": "carlos",
+      "email": "guilherme.campos.r@gmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "958971561",
+      "anotacoes": "teste",
+      "id": 2
+    }
+  ]
+}
