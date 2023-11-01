@@ -6,7 +6,7 @@ import EventosPage from './pages/EventosPage/EventosPage';
 import TipoEventos from './pages/TipoEventosPage/TipoEventosPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import TesdePage from './pages/TestePage/TestePage';
-
+import Header from './components/Header/Header';
 
 //import das paginas
 
@@ -14,6 +14,7 @@ const Rotas = () => {
     return (
         //criar a estrutura de rotas
         <BrowserRouter>
+            <Header/>
             <Routes>
                 <Route element = {<HomePage/>} path='/' exact />
                 <Route element = {<EventosPage/>} path='/eventos'/>

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Input.css';
 
-const Input = () => {
+const Input = (props) => {
+    const [meuValor, setMeuValor] = useState ();
     return (
         <div>
-            <input type="text" placeholder='Primeiro Número' id='numero1' name='numero1' />
+            <input type={props.tipo} placeholder={props.dicaCampo} id={props.id} name={props.nome} value={props.valor} 
+            onChange={(e) => {
+               props.fnAltera(e.target.value)
+            }}
+           />
             
+
+            <span>{props.valor}</span>
         </div>
     );
 };
