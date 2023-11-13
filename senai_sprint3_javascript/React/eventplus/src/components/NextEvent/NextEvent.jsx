@@ -12,12 +12,20 @@ const NextEvent = ({ title, description, eventDate, idEvento }) => {
 
     return (
         <article className='event-card'>
-            <h2 className='event-card__title'>{title}</h2>
+            <h2
+                className='event-card__title'
+                data-tooltip-id={idEvento}
+                data-tooltip-content={title}
+                data-tooltip-place="top"
+            >
+                <Tooltip id={idEvento} className='tooltip' />
+                {title.substr(0, 10)} ...
+            </h2>
 
             <p
                 className='event-card__description'
                 data-tooltip-id={idEvento}
-                data-tooltip-content= {description}
+                data-tooltip-content={description}
                 data-tooltip-place="top"
             >
                 <Tooltip id={idEvento} className='tooltip' />
