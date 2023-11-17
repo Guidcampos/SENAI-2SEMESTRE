@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './TipoEventosPage.css';
 import Title from "../../components/Title/Title";
 import MainContent from "../../components/MainContent/MainContent"
@@ -8,17 +8,33 @@ import eventTypeImage from '../../Assets/images/tipo-evento.svg'
 import { Input, Button } from "../../components/FormComponents/FormComponents";
 import api from "../../Services/Service"
 import TableTp from './TableTp/TableTp';
+import Notification from "../../components/Notification/Notification"
+
 
 const TipoEventos = () => {
+    // COMPONENTE DE NOTIFICACAO
+    const [notifyUser, setNotifyUser] = useState({});
+    
     const [titulo, setTitulo] = useState("");
     const [frmEdit, setFrmEdit] = useState(false);
-    const [tipoEventos, setTipoEventos] = useState ([
-        {idTipoEvento: "123", titulo: "Show"},
-        {idTipoEvento: "321", titulo: "Show 2"},
-        {idTipoEvento: "567", titulo: "Show 3"}
-    
-    ]);
+    const [tipoEventos, setTipoEventos] = useState ([]);
 
+
+    useEffect( () => {
+        //chamar a api
+       async function getTiposEventos() {
+            try {
+                const promise = await api.get( "/TiposEvento")
+                console.log(promise.data);
+                setTipoEventos(promise.data);
+                
+            } catch (error) {
+                console.log("Deu ruim na API");
+            }
+        }
+        getTiposEventos();
+        console.log("A API ESTÁ OK!");
+    },[]);
 
     async function handleSubmit(e) {
          //para o submit do formulario
@@ -31,7 +47,17 @@ const TipoEventos = () => {
  
          try {
              const retorno = await api.post("/TiposEvento", {titulo:titulo})
-             console.log("Cadastrado com sucesso");
+             const promise = await api.get( "/TiposEvento")
+             setTipoEventos(promise.data);
+             setNotifyUser({
+                titleNote: "Sucesso",
+                textNote: `Cadastrado com sucesso!`,
+                imgIcon: "success",
+                imgAlt:
+                  "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
+                showMessage: true,
+              });
+
              console.log(retorno.data);
              setTitulo("");
  
@@ -57,14 +83,30 @@ const TipoEventos = () => {
         alert("cancelar edição")
     }
 
-    function handleDelete () {
-        alert("DELETAR")
+   async function handleDelete (id) {
+        
+    try {
+        const retorno = await api.delete(`/TiposEvento/${id}`)
+        console.log("deletado com sucesso");
+        const promise = await api.get( "/TiposEvento")
+                
+                setTipoEventos(promise.data);
+     
+        
 
+    } catch (error) {
+      console.log("deu ruim na api");  
+      console.log(error);  
+    }
+    
+    
+   
     }
 
 
     return (
         <MainContent>
+          <Notification {...notifyUser} setNotifyUser={setNotifyUser}/>
             {/* CADASTRO DE TIPO DE USUARIOS  */}
             <section className='cadastro-evento-section'>
 
