@@ -1,8 +1,8 @@
 import React from 'react';
-import spinner from '../../assets/images/spinner-loading.svg';
+import spinner from '../../Assets/images/spinner-loading.svg';
 import './Spinner.css';
 
-function Spinner({ alt = '', width = '35x', height = '35px' }) {
+function Spinner({ alt = '', width = '35px', height = '35px' }) {
     return (
         <img 
             className='spinner' 

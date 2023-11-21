@@ -27,7 +27,7 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
                             <img
                                 className="table-data__icon" src={editPen}
                                 onClick={() => {
-                                    fnUpdate()
+                                    fnUpdate(e.idTipoEvento)
                                 }}
                                 alt=""
 
