@@ -12,3 +12,10 @@ export const dateFormatDbToView = data => {
     return `${data[2]}/${data[1]}/${data[0]}`;
 }
 
+export const dateFormatDbToView1 = data => {
+    
+    data = data.substr(0,10);//retorna apenas a data[2023-11-10]
+   
+    return `${data}`;
+}
+

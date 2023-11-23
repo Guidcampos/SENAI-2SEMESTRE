@@ -38,17 +38,55 @@ namespace webapi.event_.Repositories
             }
         }
 
+        // public Evento BuscarPorId(Guid id)
+        // {
+        //     try
+        //      {
+        //          return _context.Evento.Find(id)!;
+        //      }
+        //     catch (Exception)
+        //      {
+        //        throw;
+        //     }
+        //  }
+
         public Evento BuscarPorId(Guid id)
         {
             try
             {
-                return _context.Evento.Find(id)!;
+
+                return _context.Evento
+                    .Where(e => e.IdEvento == id)
+                    .Select(e => new Evento
+                    {
+                        IdEvento = e.IdEvento,
+                        NomeEvento = e.NomeEvento,
+                        Descricao = e.Descricao,
+                        DataEvento = e.DataEvento,
+                        IdTipoEvento = e.IdTipoEvento,
+                        TiposEvento = new TiposEvento
+                        {
+                            IdTipoEvento = e.IdTipoEvento,
+                            Titulo = e.TiposEvento!.Titulo
+                        },
+                        IdInstituicao = e.IdInstituicao,
+                        Instituicao = new Instituicao
+                        {
+                            IdInstituicao = e.IdInstituicao,
+                            NomeFantasia = e.Instituicao!.NomeFantasia
+                        }
+                    })
+                    .FirstOrDefault()!;
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
+
+
+
 
         public void Cadastrar(Evento evento)
         {
@@ -62,7 +100,7 @@ namespace webapi.event_.Repositories
             {
                 throw;
             }
-            
+
         }
 
         public void Deletar(Guid id)
@@ -82,7 +120,7 @@ namespace webapi.event_.Repositories
             {
                 throw;
             }
-            
+
         }
 
 
