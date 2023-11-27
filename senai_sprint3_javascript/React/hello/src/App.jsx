@@ -1,14 +1,19 @@
-import './App.css';
-import Titulo from './components/Titulo/Titulo';
-import Card from './components/CardEvento/Card-evento';
-import Contador from './components/Contador/Contador';
-import Rotas from './routes';
-//criar o projeto event plus (create-react-app)
+import Title from "./components/Title/Title";
+import CardEvento from "./components/CardEvento/CardEvento";
+
+import Container from "./components/Container/Container";
+
+import "./App.css";
+import Contador from "./components/Contador/Contador";
+import Rotas from "./routes";
 
 function App() {
+  // Criar as propriedades titulo, texto, textoLink
+  // passar as propriedades em cada um dios 3 componentes abaixo.
   return (
-   <Rotas/>
-
+    <div className="App">
+      <Rotas />
+    </div>
   );
 }
 

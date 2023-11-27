@@ -1,12 +1,16 @@
-import React from "react";
-import './HomePage.css';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const HomePage = () => {
+   
+    const {theme} = useContext(ThemeContext)
+
     return (
         <div>
-            <h1>Pagina HOME</h1>
+            <h1>Página Home</h1>
+            <span>Tema atual: {theme}</span>
         </div>
     );
-}
+};
 
 export default HomePage;
