@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ImageIllustrator from "../../components/ImageIllustrator/ImageIllustrator";
 import logo from "../../Assets/images/logo-pink.svg";
 import { Input, Button } from "../../components/FormComponents/FormComponents";
@@ -8,17 +8,23 @@ import {UserContext, userDecodeToken} from '../../context/AuthContext'
 
 
 import "./LoginPage.css";
+import { useNavigate } from "react-router-dom";
 
 
 const LoginPage = () => {
 
     const [user, setUser] = useState({ email: "adm@adm.com", senha: "adm123" })
     const {userData, setUserData} = useContext(UserContext)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (userData.name) navigate("/")
+    }, [userData])
 
    async function handleSubmit(e) {
         e.preventDefault();
         
-        if (user.email.length >=3 && user.senha.length >= 3) {
+        if (user.email.length >= 3 && user.senha.length >= 3) {
             //chama a api
             try {
                 const promise = await api.post("/Login", {
@@ -32,8 +38,9 @@ const LoginPage = () => {
                 setUserData(userFullToken) //guardar os dados decodificados na variavel global
                 
                 console.log("Dados Globais");
-                console.log(userData);
                 localStorage.setItem("token", JSON.stringify(userFullToken))
+                console.log(userData);
+                navigate("/")
             } catch (error) {
                 alert("Email ou senha invalidos")
             }

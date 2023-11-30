@@ -1,13 +1,13 @@
 import React from 'react';
 //import dos componentes de rotas
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
-import EventosPage from './pages/EventosPage/EventosPage';
-import TipoEventos from './pages/TipoEventosPage/TipoEventosPage';
-import LoginPage from './pages/LoginPage/LoginPage';
-import TesdePage from './pages/TestePage/TestePage';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import HomePage from '../pages/HomePage/HomePage';
+import EventosPage from '../pages/EventosPage/EventosPage';
+import TipoEventos from '../pages/TipoEventosPage/TipoEventosPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import TesdePage from '../pages/TestePage/TestePage';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 //import das paginas
 
