@@ -8,6 +8,7 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import TesdePage from '../pages/TestePage/TestePage';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import { PrivateRoute } from '../Routes/PrivateRoute'
 
 //import das paginas
 
@@ -15,16 +16,39 @@ const Rotas = () => {
     return (
         //criar a estrutura de rotas
         <BrowserRouter>
-            <Header/>
+            <Header />
             <Routes>
-                <Route element = {<HomePage/>} path='/' exact />
-                <Route element = {<EventosPage/>} path='/eventos'/>
-                <Route element = {<TipoEventos/>} path='/tipo-eventos'/>
-                <Route element = {<LoginPage/>} path='/login'/>
-                <Route element = {<TesdePage/>} path='/teste'/>
-                
+                <Route element={<HomePage />} path='/' exact />
+              
+                <Route
+                    path='/tipo-eventos'
+                    element={
+                        <PrivateRoute redirectTo='/'>
+                            <TipoEventos />
+                        </PrivateRoute>}
+                />
+               
+                <Route
+                    path='/eventos'
+                    element={
+                        <PrivateRoute redirectTo='/'>
+                            <EventosPage />
+                        </PrivateRoute>}
+                />
+
+                <Route
+                    path='/eventos-aluno'
+                    element={
+                        <PrivateRoute redirectTo='/'>
+                            <EventosPage />
+                        </PrivateRoute>}
+                />
+
+                <Route element={<LoginPage />} path='/login' />
+                <Route element={<TesdePage />} path='/teste' />
+
             </Routes>
-            <Footer/>
+            <Footer />
 
 
         </BrowserRouter>
@@ -32,3 +56,4 @@ const Rotas = () => {
 };
 
 export default Rotas;
+
