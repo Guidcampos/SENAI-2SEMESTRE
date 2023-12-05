@@ -11,6 +11,7 @@ import api from "../../Services/Service";
 
 import "./EventosAlunoPage.css";
 import { UserContext } from "../../context/AuthContext";
+import Toggle from "../../components/Toggle/Toggle";
 
 const EventosAlunoPage = () => {
   // state do menu mobile
@@ -39,14 +40,16 @@ const EventosAlunoPage = () => {
 
         if (tipoEvento === "1") {
           const retornoEventos = await api.get("/Evento");
-          setEventos(retornoEventos.data)
+          const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
 
+          const dadosMarcados = verificaPresenca(retornoEventos.data, retorno.data)
+          setEventos(retornoEventos.data)
         } else {
           let arrEventos = [];
-          const retorno = await api.get (`/PresencasEvento/ListarMinhas/${userData.userId}`)
+          const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
 
           retorno.data.forEach((element) => {
-            arrEventos.push (element.evento)
+            arrEventos.push({...element.evento, situacao : element.situacao})
           });
 
           setEventos(arrEventos)
@@ -60,7 +63,21 @@ const EventosAlunoPage = () => {
 
     loadEventsType();
 
-  }, [tipoEvento]);
+  }, [tipoEvento, userData.userId]);
+
+  const verificaPresenca = (arrAllEvents, eventsUser) => {
+    for (let x = 0; x < arrAllEvents.length; x++) {
+      for (let i = 0; i < eventsUser.length; i++) {
+        if (arrAllEvents[x].idEvento === eventsUser[i].idEvento) {
+          arrAllEvents[x].situacao = true;
+          break;
+
+        }
+
+      }
+    }
+    return arrAllEvents;
+  }
 
   // toggle meus eventos ou todos os eventos
   function myEvents(tpEvent) {
@@ -81,6 +98,8 @@ const EventosAlunoPage = () => {
 
   function handleConnect() {
     alert("Desenvolver a função conectar evento");
+
+    
   }
   return (
     <>
@@ -101,10 +120,11 @@ const EventosAlunoPage = () => {
           />
           <Table
             dados={eventos}
-            fnConnect={handleConnect}
+            fnConnect= {handleConnect}
             fnShowModal={() => {
               showHideModal();
             }}
+
           />
         </Container>
       </MainContent>
@@ -117,6 +137,7 @@ const EventosAlunoPage = () => {
           userId={userData.userId}
           showHideModal={showHideModal}
           fnDelete={commentaryRemove}
+
         />
       ) : null}
     </>
