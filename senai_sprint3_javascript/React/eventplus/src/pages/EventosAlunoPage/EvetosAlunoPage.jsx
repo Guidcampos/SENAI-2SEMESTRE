@@ -30,36 +30,36 @@ const EventosAlunoPage = () => {
   // recupera os dados globais do usuário
   const { userData, setUserData } = useContext(UserContext);
 
+  async function loadEventsType() {
+    setShowSpinner(true);
+
+
+    try {
+
+      if (tipoEvento === "1") {
+        const retornoEventos = await api.get("/Evento");
+        const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
+
+        const dadosMarcados = verificaPresenca(retornoEventos.data, retorno.data)
+        setEventos(retornoEventos.data)
+      } else {
+        let arrEventos = [];
+        const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
+
+        retorno.data.forEach((element) => {
+          arrEventos.push({ ...element.evento, situacao: element.situacao, idPresencaEvento: element.idPresencaEvento })
+        });
+
+        setEventos(arrEventos)
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+    setShowSpinner(false);
+  }
   useEffect(() => {
 
-    async function loadEventsType() {
-      setShowSpinner(true);
-
-
-      try {
-
-        if (tipoEvento === "1") {
-          const retornoEventos = await api.get("/Evento");
-          const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
-
-          const dadosMarcados = verificaPresenca(retornoEventos.data, retorno.data)
-          setEventos(retornoEventos.data)
-        } else {
-          let arrEventos = [];
-          const retorno = await api.get(`/PresencasEvento/ListarMinhas/${userData.userId}`)
-
-          retorno.data.forEach((element) => {
-            arrEventos.push({...element.evento, situacao : element.situacao})
-          });
-
-          setEventos(arrEventos)
-        }
-
-      } catch (error) {
-        console.log(error);
-      }
-      setShowSpinner(false);
-    }
 
     loadEventsType();
 
@@ -70,6 +70,7 @@ const EventosAlunoPage = () => {
       for (let i = 0; i < eventsUser.length; i++) {
         if (arrAllEvents[x].idEvento === eventsUser[i].idEvento) {
           arrAllEvents[x].situacao = true;
+          arrAllEvents[x].idPresencaEvento = eventsUser[i].idPresencaEvento
           break;
 
         }
@@ -83,23 +84,60 @@ const EventosAlunoPage = () => {
   function myEvents(tpEvent) {
     setTipoEvento(tpEvent);
   }
-
+  //LER COMENTARIO
   async function loadMyComentary(idComentary) {
-    return "????";
+    return "GET COMENTARIO";
   }
-
+  //CADASTRAR COMENTARIO
+  async function postMyComentary(idComentary) {
+    return alert("CADASTRO DO COMENTARIO");
+  }
+  //REMOVE COMENTARIO
+  const commentaryRemove = async () => {
+    alert("Remover o comentário");
+  };
   const showHideModal = () => {
     setShowModal(showModal ? false : true);
   };
 
-  const commentaryRemove = () => {
-    alert("Remover o comentário");
-  };
 
-  function handleConnect() {
-    alert("Desenvolver a função conectar evento");
+  async function handleConnect(idEvent, connect = false, idPresencaEvento = null) {
 
+
+    if (!connect) {
+      try {
+        const promise = await api.post("/PresencasEvento", {
+          situacao: true,
+          idUsuario: userData.userId,
+          idEvento: idEvent
+        })
+        if (promise.status === 201) {
+          loadEventsType();
+          console.log("Presença confirmada, parabéns");
+        }
+
+      } catch (error) {
+        console.log("erro ao conectar");
+
+      }
+      return;
+    }
     
+    //unconnect
+    try {
+
+      const promiseDelete = await api.delete(`/PresencasEvento/${idPresencaEvento}`)
+      if (promiseDelete.status === 204) {
+        loadEventsType();
+        console.log("Presença removida");
+
+      }
+    } catch (error) {
+      console.log("erro ao desconectar");
+    }
+  
+
+      
   }
   return (
     <>
@@ -120,7 +158,7 @@ const EventosAlunoPage = () => {
           />
           <Table
             dados={eventos}
-            fnConnect= {handleConnect}
+            fnConnect={handleConnect}
             fnShowModal={() => {
               showHideModal();
             }}
@@ -137,6 +175,8 @@ const EventosAlunoPage = () => {
           userId={userData.userId}
           showHideModal={showHideModal}
           fnDelete={commentaryRemove}
+          fnGet={loadMyComentary}
+          fnPost={postMyComentary}
 
         />
       ) : null}

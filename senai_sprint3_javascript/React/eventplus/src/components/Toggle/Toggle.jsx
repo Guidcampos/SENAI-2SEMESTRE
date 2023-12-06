@@ -10,7 +10,7 @@ const Toggle = ({ manipulationFunction = null, toggleActive = false }) => {
       <label
         className={`toggle ${toggleActive ? "toggle--active" : ""}`}
         htmlFor="switch-check"
-        onClick={manipulationFunction}
+        onClick={manipulationFunction} 
         key={Math.random()}
       >
         <div
