@@ -86,102 +86,116 @@ const EventosAlunoPage = () => {
   }
   //LER COMENTARIO
   async function loadMyComentary(idComentary) {
-    return "GET COMENTARIO";
+    
+    return alert(`GET COMENTARIO` );
   }
   //CADASTRAR COMENTARIO
-  async function postMyComentary(idComentary) {
-    return alert("CADASTRO DO COMENTARIO");
-  }
+  async function postMyComentary(idEvent, descricao) {
+    // try {
+    //   const promiseGet = await api.get("/ComentariosEvento")
+    //   const promise = await api.post("/ComentariosEvento", {
+    //     descricao: descricao,
+    //     idUsuario: userData.userId,
+    //     idEvento: idEvent }
+     
+      
+    //   )} catch (error) {
+
+    //   }
+    }
   //REMOVE COMENTARIO
   const commentaryRemove = async () => {
-    alert("Remover o comentário");
-  };
-  const showHideModal = () => {
-    setShowModal(showModal ? false : true);
-  };
+      alert("Remover o comentário");
+    };
+    const showHideModal = () => {
+      setShowModal(showModal ? false : true);
+    };
 
 
-  async function handleConnect(idEvent, connect = false, idPresencaEvento = null) {
+    async function handleConnect(idEvent, connect = false, idPresencaEvento = null) {
 
 
-    if (!connect) {
-      try {
-        const promise = await api.post("/PresencasEvento", {
-          situacao: true,
-          idUsuario: userData.userId,
-          idEvento: idEvent
-        })
-        if (promise.status === 201) {
-          loadEventsType();
-          console.log("Presença confirmada, parabéns");
+      if (!connect) {
+        try {
+          const promise = await api.post("/PresencasEvento", {
+            situacao: true,
+            idUsuario: userData.userId,
+            idEvento: idEvent
+          })
+          if (promise.status === 201) {
+            loadEventsType();
+            console.log("Presença confirmada, parabéns");
+          }
+
+        } catch (error) {
+          console.log("erro ao conectar");
+
         }
+        return;
+      }
 
+      //unconnect
+      try {
+
+        const promiseDelete = await api.delete(`/PresencasEvento/${idPresencaEvento}`)
+        if (promiseDelete.status === 204) {
+          loadEventsType();
+          console.log("Presença removida");
+
+        }
       } catch (error) {
-        console.log("erro ao conectar");
-
+        console.log("erro ao desconectar");
       }
-      return;
+
+
+
     }
-    
-    //unconnect
-    try {
+    return (
+      <>
+        {/* <Header exibeNavbar={exibeNavbar} setExibeNavbar={setExibeNavbar} /> */}
 
-      const promiseDelete = await api.delete(`/PresencasEvento/${idPresencaEvento}`)
-      if (promiseDelete.status === 204) {
-        loadEventsType();
-        console.log("Presença removida");
+        <MainContent>
+          <Container>
+            <Title titleText={"Eventos"} additionalClass="custom-title" />
 
-      }
-    } catch (error) {
-      console.log("erro ao desconectar");
-    }
-  
+            <Select1
+              id="id-tipo-evento"
+              name="tipo-evento"
+              required={true}
+              option={quaisEventos} // aqui o array dos tipos
+              manipulationFunction={(e) => myEvents(e.target.value)} // aqui só a variável state
+              defaultValue={tipoEvento}
+              additionalClass="select-tp-evento"
+            />
+            <Table
+              dados={eventos}
+              fnConnect={handleConnect}
+              fnShowModal={() => {
+                showHideModal();
+              }}
+              
+              
 
-      
-  }
-  return (
-    <>
-      {/* <Header exibeNavbar={exibeNavbar} setExibeNavbar={setExibeNavbar} /> */}
+            />
+          </Container>
+        </MainContent>
 
-      <MainContent>
-        <Container>
-          <Title titleText={"Eventos"} additionalClass="custom-title" />
+        {/* SPINNER -Feito com position */}
+        {showSpinner ? <Spinner /> : null}
 
-          <Select1
-            id="id-tipo-evento"
-            name="tipo-evento"
-            required={true}
-            option={quaisEventos} // aqui o array dos tipos
-            manipulationFunction={(e) => myEvents(e.target.value)} // aqui só a variável state
-            defaultValue={tipoEvento}
-            additionalClass="select-tp-evento"
+        {showModal ? (
+          <Modal
+            userId={userData.userId}
+            showHideModal={showHideModal}
+            fnDelete={commentaryRemove}
+            fnGet={loadMyComentary}
+            fnPost={postMyComentary}
+          
+
           />
-          <Table
-            dados={eventos}
-            fnConnect={handleConnect}
-            fnShowModal={() => {
-              showHideModal();
-            }}
+        ) : null}
+      </>
+    );
+  };
 
-          />
-        </Container>
-      </MainContent>
-
-      {/* SPINNER -Feito com position */}
-      {showSpinner ? <Spinner /> : null}
-
-      {showModal ? (
-        <Modal
-          userId={userData.userId}
-          showHideModal={showHideModal}
-          fnDelete={commentaryRemove}
-          fnGet={loadMyComentary}
-          fnPost={postMyComentary}
-
-        />
-      ) : null}
-    </>
-  );
-};
-
-export default EventosAlunoPage;
+  export default EventosAlunoPage;
