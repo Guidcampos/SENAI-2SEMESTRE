@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using System.Reflection;
@@ -71,7 +72,7 @@ builder.Services.AddSwaggerGen(options =>
         }
 
     });
-   
+
     options.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 
 
@@ -117,6 +118,14 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
         });
 });
+
+//HABILITA O SERVIÇO DE MODERADOR DE CONTEUDO DO AZURE
+builder.Services.AddSingleton(provider => new ContentModeratorClient(
+    new ApiKeyServiceClientCredentials("cf36cc1b58324ff39bce594e81f6208b"))
+{
+    Endpoint = "https://eventcontentmoderatorguilherme.cognitiveservices.azure.com/"
+}
+    );
 
 var app = builder.Build();
 

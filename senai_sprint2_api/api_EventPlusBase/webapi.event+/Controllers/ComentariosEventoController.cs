@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.EntityFrameworkCore.Metadata;
+using System.Drawing.Imaging;
+using System.Text;
 using webapi.event_.Domains;
 using webapi.event_.Interfaces;
 using webapi.event_.Repositories;
@@ -11,7 +15,73 @@ namespace webapi.event_.Controllers
     [Produces("application/json")]
     public class ComentariosEventoController : ControllerBase
     {
+        //Acesso aos metodos do repositorio 
         ComentariosEventoRepository comentario = new ComentariosEventoRepository();
+
+        //Armazena dados da api externa (IA-AZURE)
+        private readonly ContentModeratorClient _contentModeratorClient;
+
+        /// <summary>
+        /// Construtor que recebe os dados necessarios para o acesso ao serviço externo
+        /// </summary>
+        /// <param name="contentModeratorClient">Objeto do tipo content moderator </param>
+        public ComentariosEventoController (ContentModeratorClient contentModeratorClient)
+        {
+            _contentModeratorClient = contentModeratorClient;
+        }
+
+        [HttpPost("CadastroIA")]
+        public async Task<IActionResult> PostIA(ComentariosEvento novoComentario)
+        {
+            try
+            {
+                //Se a descrição do comentario não for passada no objeto
+                if (string.IsNullOrEmpty(novoComentario.Descricao))
+                {
+                    return BadRequest("o texto a ser moderado não pode ser vazio");
+                }
+
+                //Converte a descricao do comentario em um memory stream
+                using var stream = new MemoryStream(Encoding.UTF8.GetBytes(novoComentario.Descricao));
+
+                //Realiza a moderação do conteudo (descricao do comentario)
+                var moderationResult = await _contentModeratorClient.TextModeration.ScreenTextAsync("text/plain", stream, "por", false, false, null, true);
+               
+                //Se existir termos ofensivos sera cadastrado um comentario com o exibe setado em false 
+                if (moderationResult.Terms != null)
+                {
+                    novoComentario.Exibe = false;
+                    comentario.Cadastrar(novoComentario);
+                }
+
+                else
+                {
+                    novoComentario.Exibe = true;
+                    comentario.Cadastrar(novoComentario);
+                }
+
+                return Ok(novoComentario);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet("ListarExibe")]
+
+        public IActionResult GetIA()
+        {
+            try
+            {
+                return Ok(comentario.ListarExibe());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+                throw;
+            }
+        }
 
 
 
