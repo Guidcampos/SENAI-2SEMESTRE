@@ -174,5 +174,10 @@ namespace webapi.event_.Repositories
                 throw;
             }
         }
+
+        //public List<ComentariosEvento> Listar()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

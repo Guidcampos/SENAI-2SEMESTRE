@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj": {}
+    "C:\\Users\\guilh\\Desktop\\SENAI\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj": {}
   },
   "projects": {
-    "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj": {
+    "C:\\Users\\guilh\\Desktop\\SENAI\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj",
+        "projectUniqueName": "C:\\Users\\guilh\\Desktop\\SENAI\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj",
         "projectName": "webapi.event+",
-        "projectPath": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj",
-        "packagesPath": "C:\\Users\\39905572899\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\39905572899\\Desktop\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\obj\\",
+        "projectPath": "C:\\Users\\guilh\\Desktop\\SENAI\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\webapi.event+.csproj",
+        "packagesPath": "C:\\Users\\guilh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\guilh\\Desktop\\SENAI\\SENAI-2SEMESTRE\\senai_sprint2_api\\api_EventPlusBase\\webapi.event+\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\39905572899\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\guilh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

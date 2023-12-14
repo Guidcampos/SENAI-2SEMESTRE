@@ -10,10 +10,67 @@
     "version": "v1"
   },
   "paths": {
+    "/api/ComentariosEvento/CadastroIA": {
+      "post": {
+        "tags": [
+          "ComentariosEvento"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/ComentariosEvento"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ComentariosEvento/ListarExibe": {
+      "get": {
+        "tags": [
+          "ComentariosEvento"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid",
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/ComentariosEvento": {
       "get": {
         "tags": [
           "ComentariosEvento"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid",
+            "collectionFormat": "multi"
+          }
         ],
         "responses": {
           "200": {

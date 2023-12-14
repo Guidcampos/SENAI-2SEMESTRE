@@ -12,7 +12,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>webapi.event_.Contexts.Event_Context</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
-    <NameOfLastUsedPublishProfile>C:\Users\39905572899\Desktop\SENAI-2SEMESTRE\senai_sprint2_api\api_EventPlusBase\webapi.event+\Properties\PublishProfiles\eventapiguidcampos - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\guilh\Desktop\SENAI\SENAI-2SEMESTRE\senai_sprint2_api\api_EventPlusBase\webapi.event+\Properties\PublishProfiles\eventapiguidcampos - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
